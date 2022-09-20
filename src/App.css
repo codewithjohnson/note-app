@@ -1,0 +1,384 @@
+@import url("https://fonts.googleapis.com/css2?family=ABeeZee&family=Combo&family=Poppins:wght@100;200;300;400;500;600&family=Ubuntu&display=swap");
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  --app-padding: 0.7rem 1rem;
+  --global-border-radius: 0.5rem;
+  scroll-behavior: smooth;
+}
+
+/* font-family: 'ABeeZee', sans-serif;
+font-family: 'Combo', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Ubuntu', sans-serif; */
+
+body {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: darkcyan;
+}
+
+.container {
+  margin: 2rem auto;
+  background-color: white;
+  width: 22rem;
+  padding: var(--app-padding);
+  border-radius: var(--global-border-radius);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* STYLING THE HEADER */
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+header .app_title {
+  font-family: "Ubuntu", sans-serif;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.219);
+  padding-bottom: 0.3rem;
+}
+
+/* STYLING THE SEARCH CONTAINER */
+header .search_container {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.315);
+  outline: none;
+  padding: 0.1rem 0;
+  border-radius: var(--global-border-radius);
+  margin: 0 0.2rem;
+}
+header .search_container > span {
+  color: rgba(0, 0, 0, 0.363);
+  margin: 0.3rem;
+}
+
+.search_container > input {
+  outline: none;
+  border: none;
+  flex: 1;
+}
+
+.search_container > input::placeholder {
+  color: rgba(0, 0, 0, 0.363);
+}
+
+.react-icons {
+  background-color: transparent;
+  background: none;
+  color: powderblue;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 15px;
+  bottom: 70px;
+  cursor: pointer;
+}
+
+/*--------------- STYLING OUTPUT CONTAINER -----------*/
+.notes_container {
+  height: 300px;
+  max-height: 300px;
+  overflow: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.notes_container::-webkit-scrollbar {
+  display: none;
+}
+
+.notes {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  padding: 0;
+  width: 100%;
+}
+
+.note {
+  margin-top: 0.5rem;
+  list-style-type: none;
+  background-color: rgb(2, 78, 78);
+  background: linear-gradient(-90deg, darkcyan, black);
+  color: white;
+  padding: 0.7rem 0.5rem;
+  border-radius: 0.4rem;
+  border-left: 4px solid gray;
+}
+
+.note_content {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.767);
+}
+
+.above {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* STYLING SETTINGS */
+.settings {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: none;
+  outline: none;
+  border-radius: var(--global-border-radius);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.616);
+  cursor: pointer;
+  z-index: 10;
+  background: linear-gradient(-90deg, darkcyan, teal);
+  height: 70px;
+  width: 80px;
+  position: absolute;
+  right: 5px;
+  top: 4px;
+  bottom: -40px;
+  opacity: 0.9;
+}
+
+.edit,
+.delete {
+  height: 50%;
+}
+
+.edit,
+.delete {
+  display: flex;
+  align-items: center;
+  padding: 0 0.6rem;
+}
+
+/* THIS LINK WAS ADDED LATER TO ENABLE ROUTING SO ITS STYLING IS USEFUL */
+.edit_link {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  align-items: center;
+}
+
+.edit:hover {
+  background: linear-gradient(90deg, darkcyan, black);
+  color: white;
+  border-radius: var(--global-border-radius);
+}
+.delete:hover {
+  background: linear-gradient(90deg, darkcyan, black);
+  color: white;
+  border-radius: var(--global-border-radius);
+}
+
+.edit_icon,
+.delete_icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.1rem;
+  border-radius: var(--global-border-radius);
+}
+
+.settings .delete_text,
+.edit_text {
+  font-size: 0.72rem;
+  text-transform: capitalize;
+  margin-left: 0.8rem;
+}
+
+/* SET MENU SETTINGS TO BE ACTIVE */
+.unactive {
+  display: none;
+}
+
+/* STYLING NOTE TITLE AND DATES */
+.title {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+  color: rgba(255, 255, 255, 0.863);
+  padding-bottom: 0.2rem;
+  font-weight: 600;
+  margin-bottom: 0.1rem;
+}
+.date {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.55rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.699);
+}
+
+/* STYLING ADD NOTE CONTAINER */
+.addnote_container {
+  margin: 2rem auto;
+  background-color: white;
+  width: 22rem;
+  border-radius: var(--global-border-radius);
+  background: linear-gradient(-90deg, darkcyan, black);
+  height: 450px;
+  max-height: 450px;
+  display: flex;
+  flex-direction: column;
+}
+
+.addnote_container_head {
+  border-top-left-radius: var(--global-border-radius);
+  border-top-right-radius: var(--global-border-radius);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.274);
+  padding: 0.2rem 0.9rem;
+  padding-bottom: 0rem;
+}
+
+.addnote_title {
+  font-family: "Ubuntu", sans-serif;
+  color: rgba(255, 255, 255, 0.795);
+}
+
+.add_btn {
+  background: linear-gradient(90deg, darkcyan, black);
+  padding: 0.5rem 0.8rem;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  border: none;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--global-border-radius);
+  color: white;
+  cursor: pointer;
+}
+
+.add_btn:hover {
+  background: linear-gradient(-90deg, darkcyan, black);
+  color: white;
+}
+
+.contentArea {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.title_container {
+  width: 100%;
+  display: flex;
+  border: none;
+}
+
+.title_container > input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 0.5rem 0.9rem;
+}
+
+.textArea_container {
+  border: none;
+  outline: none;
+  width: 100%;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  background: white;
+  border-bottom-left-radius: var(--global-border-radius);
+  border-bottom-right-radius: var(--global-border-radius);
+}
+
+textarea {
+  resize: none;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0.5rem 0.9rem;
+  padding-top: 1.5rem;
+  border-bottom-left-radius: var(--global-border-radius);
+  border-bottom-right-radius: var(--global-border-radius);
+}
+
+/* STYLING FOOTER */
+
+.footer {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  user-select: none;
+}
+
+.trademark {
+  font-family: "Poppins", sans-serif;
+  animation: AnimateText 10s linear infinite;
+  font-size: 0.7rem;
+  font-weight: 300;
+  text-transform: capitalize;
+}
+
+/* ERRO PAGE STYLING */
+.errorPage {
+  margin: 10rem auto;
+  padding: 0.9rem 1.2rem;
+  width: 60%;
+  background: linear-gradient(90deg, darkcyan, black);
+  color: white;
+}
+
+.errorTitle {
+  font-family: "Ubuntu", sans-serif;
+  margin-bottom: 1.5rem;
+}
+
+.errorNote {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+}
+
+.backToSite {
+  font-family: "Poppins", sans-serif;
+  color: black;
+  font-weight: 500;
+  text-underline-offset: 0.1rem;
+}
+
+@keyframes AnimateText {
+  100% {
+    transform: translate(-100%, 0);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container,
+  .addnote_container {
+    width: 85%;
+  }
+  .errorPage {
+    width: 90%;
+  }
+  .errorNote {
+    font-size: 0.8rem;
+  }
+}
